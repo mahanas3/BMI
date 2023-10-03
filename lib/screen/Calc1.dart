@@ -32,7 +32,8 @@ class _Calc1State extends State<Calc1> {
         color: const Color.fromRGBO(0, 0, 40, 1),
         padding: const EdgeInsets.only(top: 40, left: 10),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -103,10 +104,11 @@ class _Calc1State extends State<Calc1> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(0, 0, 60, 1),
+                    color: const Color.fromRGBO(0, 0, 60, 1),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: Colors.white)),
-                child: Column(mainAxisSize: MainAxisSize.min,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(
                       height: 20,
@@ -122,16 +124,18 @@ class _Calc1State extends State<Calc1> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          _CurrentValue.toString(),
+                          _CurrentValue.toStringAsFixed(1),
                           style: const TextStyle(
                               color: Colors.white, fontSize: 35),
                         ),
                         const SizedBox(
                           width: 10,
                         ),
-                        const Text('cm',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 25)),
+                        const Flexible(
+                          child: Text('cm',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 25)),
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -139,16 +143,15 @@ class _Calc1State extends State<Calc1> {
                     ),
                     Slider(
                         value: _CurrentValue,
-                        min: 20,
+                        min: 0,
                         max: 300,
-                        // divisions: 4,
+                        //divisions: 4,
                         activeColor: Colors.pinkAccent,
                         label: _CurrentValue.round().toString(),
                         onChanged: (double value) {
                           setState(() {
                             _CurrentValue = value;
                           });
-
                         }),
                   ],
                 ),
@@ -295,7 +298,7 @@ class _Calc1State extends State<Calc1> {
               height: 30,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 20),
               child: SizedBox(
                 height: 50,
                 width: 300,
