@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project10/main.dart';
 import 'package:flutter_project10/screen/resultscreen.dart';
 
 import '../Screen1/class.dart';
@@ -145,7 +144,6 @@ class _Calc1State extends State<Calc1> {
                         value: _CurrentValue,
                         min: 0,
                         max: 300,
-                        //divisions: 4,
                         activeColor: Colors.pinkAccent,
                         label: _CurrentValue.round().toString(),
                         onChanged: (double value) {
@@ -200,8 +198,6 @@ class _Calc1State extends State<Calc1> {
                                     setState(() {
                                       weight++;
                                     });
-
-                                    print(weight);
                                   },
                                   icon: const Icon(Icons.add),
                                   color: Colors.white,
